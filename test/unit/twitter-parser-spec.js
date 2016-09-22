@@ -108,13 +108,14 @@ describe("Twitter-parser", function () {
 
     const expected = {
       text: 'US military confirms that shell fired on joint US-Iraqi base Tuesday contained "a sulfur mustard blister agent." ',
-      profileImageUrl: 'http://pbs.twimg.com/profile_images/550063386914852865/4JHr5H_Y_normal.jpeg'
+      profileImageUrl: 'http://pbs.twimg.com/profile_images/550063386914852865/4JHr5H_Y_normal.jpeg',
+      imageUrls: []
     };
 
     twitterParser.parseTweet(rawTweet).should.deep.equal(expected);
   });
 
-  it.skip("should parse tweet with picture", function () {
+  it("should parse tweet with picture", function () {
     const rawTweet = {
       "created_at": "Thu Sep 22 01:27:05 +0000 2016",
       "id": 778767543095877600,
@@ -240,7 +241,8 @@ describe("Twitter-parser", function () {
 
     const expected = {
       text: 'Bombings suspect Ahmad Rahami is unconscious and intubated at a NJ hospital, FBI says  ',
-      imageUrl: 'http://pbs.twimg.com/media/Cs6qw_bVUAEQLRd.jpg'
+      profileImageUrl: 'http://pbs.twimg.com/profile_images/550063386914852865/4JHr5H_Y_normal.jpeg',
+      imageUrls: ['http://pbs.twimg.com/media/Cs6qw_bVUAEQLRd.jpg']
     };
 
     twitterParser.parseTweet(rawTweet).should.deep.equal(expected);
