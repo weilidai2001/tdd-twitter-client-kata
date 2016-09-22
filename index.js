@@ -1,7 +1,13 @@
 'use strict';
 
 const Q = require('q');
+const TwitterClient = require('twitter');
+
 const config = require("./config");
+
+const TwitterClientWrapper = require("./lib/twitter-client-wrapper");
+const twitterClientWrapper = new TwitterClientWrapper(new TwitterClient(config.twitterAuth), config.twitterTimelineEndpoint);
+
 const nunjucks = require('nunjucks');
 const express = require("express");
 const app = express();
@@ -17,7 +23,9 @@ var server = app.listen(config.port, function () {
 
   app.get('/', function(req, res) {
     Q.spawn(function* (){
-      res.render('index.html');
+      const tweets = yield twitterClientWrapper.getTweets(config.twitterHandle);
+
+      res.render('index.html', { tweets });
     });
   });
 });

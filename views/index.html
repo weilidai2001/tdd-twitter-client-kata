@@ -5,6 +5,10 @@
   <title>Twitter client</title>
 </head>
 <body>
-  <div>Hello World!</div>
+  {% for tweet in tweets %}
+  <div class="homepage__tweet">
+    <p class="homepage__tweet-text">{{ tweet.text }}</p>
+  </div>
+  {% endfor %}
 </body>
 </html>
