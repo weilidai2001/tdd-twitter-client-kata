@@ -1,0 +1,12 @@
+$iphone6plus: 414px;
+$iphone5: 320px;
+$ipadPortrait: 768px;
+$ipadLandscape: 1024px;
+$macDesktop: 2048px;
+$superDesktop: 4096px;
+
+@mixin breakpoint($max, $min: 0) {
+  @media (max-width: $max) and (min-width: $min) {
+    @content;
+  }
+}

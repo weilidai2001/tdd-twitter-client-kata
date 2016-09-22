@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node index.js",
     "test:integration": "node_modules/mocha/bin/mocha --recursive test/integration",
-    "test:unit": "node_modules/mocha/bin/mocha --recursive test/unit"
+    "test:unit": "node_modules/mocha/bin/mocha --recursive test/unit",
+    "dev": "parallelshell 'npm run watch:sass' 'node index.js'",
+    "sass": "node-sass --output-style expanded --source-map true sass/ -o public/stylesheets/",
+    "watch:sass": "sane 'npm run sass' sass"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,11 @@
   "homepage": "https://github.com/weilidai2001/tdd-twitter-client-kata#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.0.2"
+    "mocha": "^3.0.2",
+    "node-sass": "^3.10.0",
+    "parallelshell": "^2.0.0",
+    "sane": "^1.4.1",
+    "watch": "^0.19.2"
   },
   "dependencies": {
     "express": "^4.14.0",

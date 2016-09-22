@@ -3,12 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Twitter client</title>
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/screen.css">
 </head>
 <body>
-  {% for tweet in tweets %}
-  <div class="homepage__tweet">
-    <p class="homepage__tweet-text">{{ tweet.text }}</p>
+  <div class="homepage__tweets-container">
+    {% for tweet in tweets %}
+    <div class="homepage__tweet">
+      <img class="homepage__tweet-profile" src="{{ tweet.profileImageUrl }}">
+      <p class="homepage__tweet-text">{{ tweet.text }}</p>
+      {% if tweet.imageUrls.length %}
+      <div class="homepage__tweet-image" style="background-image: url('{{ tweet.imageUrls[0] }}');"></div>
+      {% endif %}
+
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </body>
 </html>

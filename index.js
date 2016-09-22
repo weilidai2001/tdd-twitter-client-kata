@@ -23,7 +23,7 @@ var server = app.listen(config.port, function () {
 
   app.get('/', function(req, res) {
     Q.spawn(function* (){
-      const tweets = yield twitterClientWrapper.getTweets(config.twitterHandle);
+      const tweets = yield twitterClientWrapper.getTweets(config.twitterHandle, 100);
 
       res.render('index.html', { tweets });
     });
