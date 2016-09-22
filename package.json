@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha test"
+    "test:integration": "node_modules/mocha/bin/mocha --recursive test/integration",
+    "test:unit": "node_modules/mocha/bin/mocha --recursive test/unit"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.0.2"
+  },
+  "dependencies": {
+    "twitter": "^1.4.0"
   }
 }
