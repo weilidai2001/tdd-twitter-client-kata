@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test:integration": "node_modules/mocha/bin/mocha --recursive test/integration",
     "test:unit": "node_modules/mocha/bin/mocha --recursive test/unit"
   },
@@ -22,6 +23,8 @@
     "mocha": "^3.0.2"
   },
   "dependencies": {
+    "express": "^4.14.0",
+    "q": "^1.4.1",
     "twitter": "^1.4.0"
   }
 }
