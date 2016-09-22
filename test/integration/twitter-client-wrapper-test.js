@@ -9,7 +9,7 @@ const twitterClientWrapper = new TwitterClientWrapper(new TwitterClient(config.t
 
 describe("Twitter-client-wrapper", function () {
   it("should retrieve tweets", function (done) {
-    twitterClientWrapper.getTweets(config.twitterHandle).then(tweets => {
+    twitterClientWrapper.getTweets(config.twitterHandle, 100).then(tweets => {
       tweets.length.should.be.above(1);
       done();
     });
